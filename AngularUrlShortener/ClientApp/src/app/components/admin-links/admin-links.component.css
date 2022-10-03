@@ -1,0 +1,9 @@
+.admin-links {
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.admin-links-item {
+  margin: 0px 0px 10px 0px;
+}

@@ -1,0 +1,16 @@
+<p *ngIf="showErrorMessage" class="error-message">{{ errorMessage }}</p>
+
+<form class="shorten-form" (ngSubmit)="onSubmit()">
+  <h4>Enter a url to shorten:</h4>
+  <div class="shorten-form-control-inline">
+    <input type="text" class="shorten-form-input" name="url" [(ngModel)]="url" id="url" placeholder="https://website.com/" />
+    <button type="submit">Shorten!</button>
+  </div>
+</form>
+
+<div class="shorten-result" *ngIf="showResult">
+  <h2>You're Link have been processed:</h2>
+  <h3>{{ resultUrl }}</h3>
+  <h1 (click)="copyToClipboard()">{{ resultShort }}</h1>
+  <p>{{ clipboardText }}</p>
+</div>

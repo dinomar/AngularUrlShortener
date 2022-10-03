@@ -1,0 +1,10 @@
+<div class="links">
+  <h2>My Links:</h2>
+
+  <p *ngIf="!links">No links here.</p>
+
+  <app-links-item *ngFor="let link of links"
+                  [link]="link"
+                  (onRemoveLink)="removeLink(link)">
+  </app-links-item>
+</div>

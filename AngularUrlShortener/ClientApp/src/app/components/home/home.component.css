@@ -1,0 +1,72 @@
+.shorten-form {
+  font-size: 20px;
+  background-color: #A4C3B2;
+  margin: 0px auto;
+  min-width: 300px;
+  max-width: 900px;
+  width: 80%;
+  padding: 70px 30px;
+}
+
+.shorten-form h4 {
+  margin-bottom: 5px;
+}
+
+.shorten-form-control-inline {
+  display: flex;
+}
+
+.shorten-form-control-inline input {
+  display: block;
+  height: 40px;
+  width: 100%;
+  padding-left: 10px;
+  border: none;
+}
+
+.shorten-form-control-inline input:focus {
+  outline: none;
+}
+
+.shorten-form-control-inline button {
+  color: white;
+  background: #88AE99;
+  border: none;
+  font-size: large;
+  padding: 10px;
+  margin-left: 20px;
+  width: 100px;
+}
+
+.shorten-form-control-inline button:hover {
+  cursor: pointer;
+  background-color: #6B9080;
+}
+
+
+.shorten-result {
+  background-color: #A4C3B2;
+  margin: 0px auto;
+  min-width: 300px;
+  max-width: 900px;
+  width: 80%;
+  margin-top: 60px;
+  padding: 70px 30px;
+}
+
+.shorten-result h3 {
+  margin-top: 0px;
+  text-overflow: wrap;
+}
+
+.shorten-result h1 {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: small;
+  margin-bottom: 5px;
+}

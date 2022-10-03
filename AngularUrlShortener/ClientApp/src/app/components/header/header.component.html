@@ -1,0 +1,28 @@
+<header>
+  <h2 routerLink="/">{{ title }}</h2>
+  <div class="header-nav">
+    <div *ngIf="loggedIn" class="user-message">
+      Hi, {{ username }}!
+    </div>
+    <div *ngIf="!loggedIn" class="user-auth">
+      <a routerLink="/login">Login </a>
+      <span>/</span>
+      <a routerLink="/register"> Sign Up</a>
+    </div>
+
+    <fa-icon *ngIf="loggedIn" class="fa-2x header-nav-menu-btn" (click)="toggleShowMenu()" [icon]="faBars"></fa-icon>
+    <div *ngIf="showMenu" class="header-nav-menu">
+      <ul>
+        <li *ngIf="showCreateLink">
+          <a routerLink="/">Create Link</a>
+        </li>
+        <li>
+          <a routerLink="/mylinks">My Links</a>
+        </li>
+        <li>
+          <a routerLink="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

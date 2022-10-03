@@ -1,0 +1,29 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <p *ngIf="showErrorMessage" class="form-control-error">{{ errorMessage }}</p>
+    <div class="form-control form-label-white">
+      <label for="username">Username:</label>
+      <input type="text" name="username" [(ngModel)]="username" id="username">
+    </div>
+    <div class="form-control form-label-white">
+      <label for="email">Email:</label>
+      <input type="email" name="email" [(ngModel)]="email" id="email">
+    </div>
+    <div class="form-control form-label-white">
+      <label for="password2">Password:</label>
+      <div class="form-control-inline">
+        <input type="{{ showPassword ? 'text' : 'password' }}" name="password" [(ngModel)]="password" id="password" />
+        <fa-icon *ngIf="!showPassword" [icon]="faEye" class="show-password-icon" (click)="toggleShowPassword()"></fa-icon>
+        <fa-icon *ngIf="showPassword" [icon]="faEyeSlash" class="show-password-icon" (click)="toggleShowPassword()"></fa-icon>
+      </div>
+    </div>
+    <div class="form-control form-label-white">
+      <label for="password2">Password again:</label>
+      <input type="{{ showPassword ? 'text' : 'password' }}" name="password2" [(ngModel)]="password2" id="password2" />
+    </div>
+    <div class="form-control">
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</div>

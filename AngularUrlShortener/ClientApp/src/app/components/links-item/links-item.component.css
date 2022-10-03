@@ -1,0 +1,29 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+
+.link input[type=text] {
+  display: block;
+  width: 100%;
+  margin: 0px 10px;
+  height: 30px;
+  border: none;
+  overflow-y: scroll;
+  padding-left: 10px;
+}
+
+#shorturl {
+  width: 60%;
+}
+
+.remove-btn {
+  color: white;
+}
+
+.remove-btn:hover {
+  cursor: pointer;
+  color: red;
+}
