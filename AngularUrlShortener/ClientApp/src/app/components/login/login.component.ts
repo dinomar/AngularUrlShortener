@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     this.accountService.login(loginForm).subscribe(
       user => {
         this.uiService.setLoggedIn(true);
-        this.uiService.setUsername(user.username); // TODO: remove?
+        this.uiService.setUsername(user.username);
         this.router.navigate(['']);
         return;
       },
