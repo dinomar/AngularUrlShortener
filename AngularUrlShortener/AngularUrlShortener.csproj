@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\ApiSettings.ts" />
     <None Remove="ClientApp\src\app\Link.ts" />
     <None Remove="ClientApp\src\app\Login.ts" />
     <None Remove="ClientApp\src\app\Register.ts" />
@@ -36,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\ApiSettings.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Link.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Login.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Register.ts" />

@@ -41,7 +41,21 @@ namespace AngularUrlShortener.Controllers
             return BadRequest();
         }
 
-        // TODO: Get settings
-        // TODO: Update settings
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_settingsRepo.Get());
+        }
+
+        [HttpPut]
+        public IActionResult Put(Settings model)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(_settingsRepo.Update(model));
+            }
+
+            return BadRequest();
+        }
     }
 }

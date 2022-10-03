@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="onSubmit()">
   <h2>Settings</h2>
   <p class="form-control-error"></p>
   <div class="form-control">
@@ -7,14 +7,14 @@
   </div>
   <div class="form-control">
     <label for="hostname">Hostname:</label>
-    <input type="text" name="hostname" id="hostname">
+    <input type="text" name="hostname" [(ngModel)]="hostname" id="hostname">
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="anonUrls" id="anonUrls" />
+    <input class="form-check-input" type="checkbox" name="allowAnonymousLinkCreation" [(ngModel)]="allowAnonymousLinkCreation" id="allowAnonymousLinkCreation" />
     <label class="form-check-label" for="anonUrls">Allow anonymous link creation</label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="anonUrls" id="anonUrls" />
+    <input class="form-check-input" type="checkbox" name="allowSignup" [(ngModel)]="allowSignup" id="allowSignup" />
     <label class="form-check-label" for="anonUrls">Allow signup's</label>
   </div>
   <div class="form-control">

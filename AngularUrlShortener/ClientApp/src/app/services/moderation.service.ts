@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -12,9 +12,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ModerationService {
-  private apiUrl: string = 'http://localhost:4200/api/moderation';
+  private apiUrl: string = '';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.apiUrl = baseUrl + 'api/moderation';
+  }
 
   // get all links
   // get link
