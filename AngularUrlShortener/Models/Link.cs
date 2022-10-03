@@ -10,6 +10,6 @@ namespace AngularUrlShortener.Models
         [Required]
         [MinLength(1)]
         public string Url { get; set; }
-        public string ShortUrl { get; set; }
+        public string? ShortUrl { get; set; }
     }
 }

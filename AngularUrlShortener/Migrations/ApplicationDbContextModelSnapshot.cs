@@ -24,7 +24,6 @@ namespace AngularUrlShortener.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ShortUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")

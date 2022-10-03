@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Register } from 'src/app/Register';
@@ -15,9 +15,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AccountService {
-  private apiUrl: string = 'http://localhost:4200/api/account';
+  private apiUrl: string = '';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.apiUrl = baseUrl + 'api/account';
+  }
 
   register(register: Register): Observable<User> {
     const url = `${this.apiUrl}/register`;

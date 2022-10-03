@@ -44,11 +44,16 @@ export class HomeComponent implements OnInit {
       url: this.url
     }
 
-    this.linksService.createLink(newLink).subscribe((link) => {
-      this.showResult = true;
-      this.resultUrl = link.url;
-      this.resultShort = link.shortUrl;
-    });
+    this.linksService.createLink(newLink).subscribe(
+      link => {
+        this.showResult = true;
+        this.resultUrl = link.url;
+        this.resultShort = link.shortUrl;
+      },
+      error => {
+        this.errorMessage = `Error: ${error.statusText}`;
+        this.showErrorMessage = true;
+      });
 
     this.url = '';
     this.showErrorMessage = false;

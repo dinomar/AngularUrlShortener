@@ -30,24 +30,25 @@ namespace AngularUrlShortener.Controllers
         {
             if (ModelState.IsValid)
             {
+                // By Email.
                 IdentityUser user = await _userManager.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
-                    // By Email.
+                    
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
                     {
                         return Ok(new { Username = user.UserName });
                     }
+                }
 
-                    // By Username.
-                    user = await _userManager.FindByNameAsync(model.Email);
-                    if (user != null)
+                // By Username.
+                user = await _userManager.FindByNameAsync(model.Email);
+                if (user != null)
+                {
+                    if ((await _signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
                     {
-                        if ((await _signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
-                        {
-                            return Ok(new { Username = user.UserName });
-                        }
+                        return Ok(new { Username = user.UserName });
                     }
                 }
             }

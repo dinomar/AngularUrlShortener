@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Link } from 'src/app/Link';
@@ -13,9 +13,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LinksService {
-  private apiUrl: string = 'http://localhost:4200/api/links';
+  private apiUrl: string = '';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.apiUrl = baseUrl + 'api/links';
+  }
 
   getUrl(shortUrl: string): Observable<Link> {
     const url = `${this.apiUrl}/${shortUrl}`;

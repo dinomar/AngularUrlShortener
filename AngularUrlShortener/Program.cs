@@ -54,9 +54,18 @@ namespace AngularUrlShortener
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller}/{action=Index}/{id?}");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            //app.MapControllerRoute(
+            //    name: "api",
+            //    pattern: "api/{controller}/{action=Index}/{id?}");
+
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller}/{action=Index}/{id?}");
 
             app.MapFallbackToFile("index.html");
 

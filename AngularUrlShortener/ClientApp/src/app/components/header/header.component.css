@@ -47,6 +47,7 @@ header h2 {
 .header-nav-menu ul {
   list-style: none;
   color: white;
+  padding-left: 0px;
 }
 
 .header-nav-menu li {
