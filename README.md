@@ -8,4 +8,4 @@ ASP.NET Core 6
 Entity Framework  
 Identity Framework  
 
-[Live Demo](https://todo.com)
+[Live Demo](https://angularurlshortener20221006004247.azurewebsites.net)
