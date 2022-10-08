@@ -11,6 +11,6 @@
 <div class="shorten-result" *ngIf="showResult">
   <h2>You're Link have been processed:</h2>
   <h3>{{ resultUrl }}</h3>
-  <h1 (click)="copyToClipboard()">{{ resultShort }}</h1>
+  <input type="text" class="resultShort" (click)="copyToClipboard()" value="{{ resultShort }}" readonly />
   <p>{{ clipboardText }}</p>
 </div>
