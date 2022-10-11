@@ -1,29 +1,33 @@
 <div class="form-container">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
     <h2>Register</h2>
     <p *ngIf="showErrorMessage" class="form-control-error">{{ errorMessage }}</p>
     <div class="form-control form-label-white">
       <label for="username">Username:</label>
-      <input type="text" name="username" [(ngModel)]="username" id="username">
+      <input type="text" name="username" [(ngModel)]="model.username" id="username" required #username="ngModel">
+      <p [hidden]="username.valid || username.pristine" class="form-control-error">Username is required</p>
     </div>
     <div class="form-control form-label-white">
       <label for="email">Email:</label>
-      <input type="email" name="email" [(ngModel)]="email" id="email">
+      <input type="email" name="email" [(ngModel)]="model.email" id="email" required #email="ngModel">
+      <p [hidden]="email.valid || email.pristine" class="form-control-error">Email is required</p>
     </div>
     <div class="form-control form-label-white">
       <label for="password2">Password:</label>
       <div class="form-control-inline">
-        <input type="{{ showPassword ? 'text' : 'password' }}" name="password" [(ngModel)]="password" id="password" />
+        <input type="{{ showPassword ? 'text' : 'password' }}" name="password" [(ngModel)]="model.password" id="password" required #password="ngModel" />
         <fa-icon *ngIf="!showPassword" [icon]="faEye" class="show-password-icon" (click)="toggleShowPassword()"></fa-icon>
         <fa-icon *ngIf="showPassword" [icon]="faEyeSlash" class="show-password-icon" (click)="toggleShowPassword()"></fa-icon>
       </div>
+      <p [hidden]="password.valid || password.pristine" class="form-control-error">Password required</p>
     </div>
     <div class="form-control form-label-white">
       <label for="password2">Password again:</label>
-      <input type="{{ showPassword ? 'text' : 'password' }}" name="password2" [(ngModel)]="password2" id="password2" />
+      <input type="{{ showPassword ? 'text' : 'password' }}" name="password2" [(ngModel)]="model.password2" id="password2" required #password2="ngModel" />
+      <p [hidden]="password2.valid || password2.pristine" class="form-control-error">Password required again</p>
     </div>
     <div class="form-control">
-      <button type="submit">Register</button>
+      <button type="submit" [ngClass]="{'btn-disabled': !registerForm.form.valid}" [disabled]="!registerForm.form.valid">Register</button>
     </div>
   </form>
 </div>

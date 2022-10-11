@@ -14,10 +14,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 export class RegisterComponent implements OnInit {
   errorMessage: string = '';
   showErrorMessage: boolean = false;
-  username: string = '';
-  email: string = '';
-  password: string = '';
-  password2: string = '';
+  model: Register = { username: "", email: "", password: "", password2: "" };
   showPassword: boolean = false;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
@@ -32,43 +29,36 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.showErrorMessage = false;
 
-    if (!this.username) {
-      this.errorMessage = 'Please enter a username';
-      this.showErrorMessage = true;
-    }
+    // if (!this.model.username) {
+    //   this.errorMessage = 'Please enter a username';
+    //   this.showErrorMessage = true;
+    // }
 
-    if (!this.email) {
-      this.errorMessage = 'Please enter a email!';
-      this.showErrorMessage = true;
-      return;
-    }
+    // if (!this.model.email) {
+    //   this.errorMessage = 'Please enter a email!';
+    //   this.showErrorMessage = true;
+    //   return;
+    // }
 
-    if (!this.password) {
-      this.errorMessage = 'Please enter password!'
-      this.showErrorMessage = true;
-      return;
-    }
+    // if (!this.model.password) {
+    //   this.errorMessage = 'Please enter password!'
+    //   this.showErrorMessage = true;
+    //   return;
+    // }
 
-    if (!this.password2) {
-      this.errorMessage = 'Please enter password again!'
-      this.showErrorMessage = true;
-      return;
-    }
+    // if (!this.model.password2) {
+    //   this.errorMessage = 'Please enter password again!'
+    //   this.showErrorMessage = true;
+    //   return;
+    // }
 
-    if (this.password !== this.password2) {
+    if (this.model.password !== this.model.password2) {
       this.errorMessage = 'Password does not match!';
       this.showErrorMessage = true;
       return;
     }
 
-    const registerForm: Register = {
-      username: this.username,
-      email: this.email,
-      password: this.password,
-      password2: this.password2
-    }
-
-    this.accountService.register(registerForm).subscribe(
+    this.accountService.register(this.model).subscribe(
       user => {
         this.uiService.setLoggedIn(true);
         this.uiService.setUsername(user.username); // TODO: remove?
@@ -83,10 +73,7 @@ export class RegisterComponent implements OnInit {
     );
 
     this.showErrorMessage = false;
-    this.username = '';
-    this.email = '';
-    this.password = '';
-    this.password2 = '';
+    this.model = { username: "", email: "", password: "", password2: "" };
     this.errorMessage = '';
   }
 

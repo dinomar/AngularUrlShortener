@@ -17,8 +17,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 export class LoginComponent implements OnInit {
   errorMessage: string = '';
   showErrorMessage: boolean = false;
-  email: string = '';
-  password: string = '';
+  model: Login = { email: "", password: "" };
   showPassword: boolean = false;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
@@ -33,24 +32,24 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.showErrorMessage = false;
 
-    if (!this.email) {
-      this.errorMessage = 'Please enter email!';
-      this.showErrorMessage = true;
-      return;
-    }
+    // if (!this.email) {
+    //   this.errorMessage = 'Please enter email!';
+    //   this.showErrorMessage = true;
+    //   return;
+    // }
 
-    if (!this.password) {
-      this.errorMessage = 'Please enter password!'
-      this.showErrorMessage = true;
-      return;
-    }
+    // if (!this.password) {
+    //   this.errorMessage = 'Please enter password!'
+    //   this.showErrorMessage = true;
+    //   return;
+    // }
 
-    const loginForm: Login = {
-      email: this.email,
-      password: this.password
-    };
+    // const loginForm: Login = {
+    //   email: this.email,
+    //   password: this.password
+    // };
 
-    this.accountService.login(loginForm).subscribe(
+    this.accountService.login(this.model).subscribe(
       user => {
         this.uiService.setLoggedIn(true);
         this.uiService.setUsername(user.username);
@@ -65,8 +64,8 @@ export class LoginComponent implements OnInit {
     );
 
     this.showErrorMessage = false;
-    this.email = '';
-    this.password = '';
+    this.model.email = '';
+    this.model.password = '';
   }
 
   toggleShowPassword(): void {

@@ -1,10 +1,10 @@
 <p *ngIf="showErrorMessage" class="error-message">{{ errorMessage }}</p>
 
-<form class="shorten-form" (ngSubmit)="onSubmit()">
+<form class="shorten-form" (ngSubmit)="onSubmit()" #urlForm="ngForm">
   <h4>Enter a url to shorten:</h4>
   <div class="shorten-form-control-inline">
-    <input type="text" class="shorten-form-input" name="url" [(ngModel)]="url" id="url" placeholder="https://website.com/" />
-    <button type="submit">Shorten!</button>
+    <input type="text" class="shorten-form-input" name="url" [(ngModel)]="url" id="url" placeholder="https://website.com/" required />
+    <button type="submit" [ngClass]="{'btn-disabled': !urlForm.form.valid}" [disabled]="!urlForm.form.valid">Shorten!</button>
   </div>
 </form>
 
